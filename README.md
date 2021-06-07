@@ -1,8 +1,10 @@
 # sql
 
 Izpiši podatek Name iz tabele Artist z SQL ukazom (za vse vnose v tej tabeli):
+```sql
 SELECT Artist.Name
 FROM Artist
+```
 
 Izpiši vse podatke iz tabele Invoice, kjer je BillingCountry Nemčija (Germany):
 SELECT *
