@@ -38,5 +38,60 @@ SELECT avg(Invoice.total)
 FROM Invoice
 ```
 
+Kateri nakup je bil najdražji?
+```sql
+SELECT max(Invoice.total), *
+FROM Invoice
+```
+
+Najcenejsi?
+```sql
+SELECT min(Invoice.total), *
+FROM Invoice
+```
+
+V katerem mestu je bilo največ nakupov?
+```sql
+```
+
+Izračunaj oziroma preštej, koliko skladb (Track) je tipa (MediaType) Protected AAC audio file
+```sql
+```
+
+Ugotovi, kateri izvajalec (Artist) ima največ albumov.
+```sql
+SELECT Artist.Name, count (*) as biggest
+FROM Artist
+INNER JOIN Album on Album.AlbumId=Artist.ArtistId
+GROUP BY Album.ArtistId
+ORDER BY biggest DESC
+
+```
+
+Kateri žanr (Genre) ima največ skladb (Track)?
+```sql
+SELECT Genre.Name, count (*)	
+FROM Genre
+INNER JOIN Track on Track.GenreId=Genre.GenreId
+GROUP BY Track.GenreId
+```
+
+Kateri kupec je do sedaj v trgovini zapravil največ?
+```sql
+```
+
+Izpiši vse račune in katere pesmi so bile kupljene na posameznem računu (namig: tu narediš many-to-many SQL query in sicer s tremi tabelami, Track, Invoice in InvoiceLine.
+```sql
+```
+
+Kateri kupci porabijo več denarja - tisti ki delajo za neko firmo, ali tisti, ki ne
+```sql
+```
+
+Za vsako izmed teh dveh vrst kupcev naredi svojo SQL poizvedbo ter primerjaj dobljeni vrednosti
+```sql
+```
+
+
 
 
