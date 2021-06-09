@@ -56,6 +56,10 @@ V katerem mestu je bilo največ nakupov?
 
 Izračunaj oziroma preštej, koliko skladb (Track) je tipa (MediaType) Protected AAC audio file
 ```sql
+SELECT count(*)
+FROM Track
+INNER JOIN MediaType on Track.MediaTypeId=MediaType.MediaTypeId
+WHERE MediaType.Name='Protected AAC audio file'
 ```
 
 Ugotovi, kateri izvajalec (Artist) ima največ albumov.
@@ -78,6 +82,12 @@ GROUP BY Track.GenreId
 
 Kateri kupec je do sedaj v trgovini zapravil največ?
 ```sql
+SELECT Customer.FirstName, Customer.LastName, sum(Invoice.total) as customer_total
+FROM Customer
+INNER JOIN Invoice on Invoice.CustomerId=Customer.CustomerId
+GROUP BY Invoice.CustomerId
+ORDER BY customer_total DESC;
+
 ```
 
 Izpiši vse račune in katere pesmi so bile kupljene na posameznem računu (namig: tu narediš many-to-many SQL query in sicer s tremi tabelami, Track, Invoice in InvoiceLine.
