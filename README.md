@@ -94,6 +94,10 @@ ORDER BY customer_total DESC;
 
 Izpiši vse račune in katere pesmi so bile kupljene na posameznem računu (namig: tu narediš many-to-many SQL query in sicer s tremi tabelami, Track, Invoice in InvoiceLine.
 ```sql
+SELECT Invoice.InvoiceId, Track.Name
+FROM Invoice
+JOIN InvoiceLine ON InvoiceLine.InvoiceId = Invoice.InvoiceId
+JOIN Track ON InvoiceLine.TrackId = Track.TrackId;
 ```
 
 Kateri kupci porabijo več denarja - tisti ki delajo za neko firmo, ali tisti, ki ne
