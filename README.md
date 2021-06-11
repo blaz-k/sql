@@ -101,11 +101,22 @@ JOIN Track ON InvoiceLine.TrackId = Track.TrackId;
 ```
 
 Kateri kupci porabijo več denarja - tisti ki delajo za neko firmo, ali tisti, ki ne
-```sql
-```
+-ki ne delajo
 
 Za vsako izmed teh dveh vrst kupcev naredi svojo SQL poizvedbo ter primerjaj dobljeni vrednosti
 ```sql
+SELECT sum(Invoice.total) as customer_total
+FROM Customer
+INNER JOIN Invoice on Invoice.CustomerId=Customer.CustomerId
+WHERE Customer.Company is NOT NULL
+ORDER BY customer_total DESC;
+```
+```sql
+SELECT sum(Invoice.total) as customer_total
+FROM Customer
+INNER JOIN Invoice on Invoice.CustomerId=Customer.CustomerId
+WHERE Customer.Company is NULL
+ORDER BY customer_total DESC;
 ```
 
 
