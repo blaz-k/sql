@@ -70,7 +70,7 @@ Ugotovi, kateri izvajalec (Artist) ima največ albumov.
 ```sql
 SELECT Artist.Name, count (*) as biggest
 FROM Artist
-INNER JOIN Album on Album.AlbumId=Artist.ArtistId
+INNER JOIN Album on Album.ArtistId=Artist.ArtistId
 GROUP BY Album.ArtistId
 ORDER BY biggest DESC
 ```
